@@ -1,0 +1,20 @@
+杠杆利用类型参数判断
+    如List<String>=new ArrayList<String>();
+    总是重复在作自己做过的事
+    我们可以创建一个工具类,它包含各种各样的staitc方法,专门用来创建各种常用的容器对象
+
+类型判断只对赋值操作有效,其他时候并不起作用,如果你将一个泛型方法调用的结果(如 new.map()) 作为参数
+传递给另一个方法,这是编译器并不会执行类型判断,在这种情况下,编译器认为:调用泛型方法后,其返回值被赋给一个Object类型的变量
+显式的:New.<String,List<? extends Integer>>map()
+
+可变参数和泛型方法
+public static <T> List<T> makeList(T... args){}
+
+用于Generator的泛型方法
+一个通用的Generator    com.shinian.demo.BasicGenerator
+
+一个使用的Set工具
+
+
+
+

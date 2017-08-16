@@ -66,7 +66,5 @@ public class CoffeeGenerator implements Generator<Coffee>, Iterable<Coffee> {
         for (Coffee c:new CoffeeGenerator(5) ) {
             System.out.println(c);
         }
-
     }
-
 }
