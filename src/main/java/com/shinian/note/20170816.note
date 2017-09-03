@@ -13,7 +13,9 @@ public static <T> List<T> makeList(T... args){}
 用于Generator的泛型方法
 一个通用的Generator    com.shinian.demo.BasicGenerator
 
-一个使用的Set工具
+#一个使用的Set工具
+
+
 
 
 
