@@ -5,4 +5,4 @@
 
     Customer和Teller类都只有private的构造器,这可以强制你使用Generator对象
 
-创建复杂模型
+
