@@ -1,2 +1,43 @@
 创建复杂模型
     泛型的一个重要好处是能够简单而安全的创建复杂的模型, Store
+
+擦除
+    Class c1 = new ArrayList<String>().getClass();
+    Class c2 = new ArrayList<Integer>().getClass();
+    System.out.println(c1 == c2);
+
+    ArrayList<String>() 和 ArrayList<Integer>()很容易被认为是不同的代码
+
+    但是他们两个实际是相同的
+
+    Quark<Fnorkle> quark = new Quark<>();
+    System.out.println(Arrays.toString(quark.getClass().getTypeParameters()));
+    只能获得Q 说明在泛型代码内部,无法获得任何有关泛型参数类型的信息
+
+    
+1:用同一泛型类的实例区分方法签名？——NO！(泛型不同 说明不是一个方法)
+
+2:同时catch同一个泛型异常类的多个实例？——NO！
+  同理，如果定义了一个泛型一场类GenericException<T>，千万别同时catch GenericException<Integer> 和GenericException<String>，因为他们是一样一样滴⋯⋯
+
+3:泛型类的静态变量是共享的
+        import java.util.*;
+
+        public class StaticTest{
+            public static void main(String[] args){
+                GT<Integer> gti = new GT<Integer>();
+                gti.var=1;
+                GT<String> gts = new GT<String>();
+                gts.var=2;
+                System.out.println(gti.var);
+            }
+        }
+        class GT<T>{
+            public static int var=0;
+            public void nothing(T x){}
+        }
+
+1.虚拟机中没有泛型，只有普通类和普通方法
+2.所有泛型类的类型参数在编译时都会被擦除
+3.创建泛型对象时请指明类型，让编译器尽早的做参数检查（Effective Java，第23条：请不要在新代码中使用原生态类型）
+4.不要忽略编译器的警告信息，那意味着潜在的ClassCastException等着你。
