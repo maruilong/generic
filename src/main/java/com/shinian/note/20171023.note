@@ -1,0 +1,14 @@
+转型和警告
+    使用带有泛型类型参数的转型或者instantceof不会有任何效果
+    List<Widget> widgets = List<Widget>.class.cast(ois.readObject());//因为擦除的原因无法校验
+    List<Widget> widgets = List.class.cast(ois.readObject());
+
+重载
+    public class User<K,V>{
+        void f(List<K> k){}
+        void f(List<V> k){}
+    }
+    是不能编译的
+    因为擦除的原因,重载方法将产生相同的签名
+
+动态类型安全
