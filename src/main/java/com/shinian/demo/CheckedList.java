@@ -21,9 +21,6 @@ public class CheckedList {
         //校验
         List<Dog> dogs2 = Collections.checkedList(new ArrayList<Dog>(), Dog.class);
         oldStyleMethod(dogs2);
-
-
-
     }
 
 }
